@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Collections;
 
 namespace WindowsFormsApp3
 {
@@ -25,7 +26,7 @@ namespace WindowsFormsApp3
         string suger = "";
         string ice = "";
         string bonus = "";
-        bool isOutgo = false;
+        bool isoutgo = false;
         bool isbuyBag = false;
         
         public Form1()
@@ -109,7 +110,7 @@ namespace WindowsFormsApp3
             lblSum.Text = $"{sumprice}元";
 
             chkOutGo.Checked = false;
-            isOutgo = chkOutGo.Checked;
+            isoutgo = chkOutGo.Checked;
             chkBag.Checked = false;
             isbuyBag = chkBag.Checked;
         }
@@ -125,46 +126,99 @@ namespace WindowsFormsApp3
 
         private void lboxDrink_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if(lboxDrink.SelectedIndex >= 0)
+            {
+                pdname = listDrink[lboxDrink.SelectedIndex];
+                price = listPrice[lboxDrink.SelectedIndex] + listBonusPrice[cboxBonus.SelectedIndex];
+                lblPrice.Text = $"{price}元";
+                CalculateSumPrice();
+            }
         }
 
         private void txtQty_TextChanged(object sender, EventArgs e)
         {
+            if(txtQty.Text != "")
+            {
+                bool is杯數正確輸入 = Int32.TryParse(txtQty.Text, out qty);
 
+                if ((is杯數正確輸入) && (qty > 0) && (qty < 100))
+                {//input correct
+
+                }
+                else
+                {//incorrect
+                    MessageBox.Show("杯數輸入不正確, 重新輸入(1-99)", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    qty = 1;
+                    txtQty.Text = qty.ToString();
+                }
+                CalculateSumPrice() ;
+            }
+            //EXE: 加入+-按鈕觸控銀幕
+            
         }
 
         private void cboxSuger_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            suger = listSuger[cboxSuger.SelectedIndex];
         }
 
         private void cboxIce_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            ice = listIce[cboxIce.SelectedIndex];
         }
 
         private void cboxBonus_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (lboxDrink.SelectedIndex >= 0)
+            {
+                pdname = listDrink[lboxDrink.SelectedIndex];
+                price = listPrice[lboxDrink.SelectedIndex] + listBonusPrice[cboxBonus.SelectedIndex];
+                bonus = listBonus[cboxBonus.SelectedIndex];
+                lblPrice.Text = $"{price}元";
+                CalculateSumPrice();
+            }
         }
 
         private void chkOutGo_CheckedChanged(object sender, EventArgs e)
         {
-
+            isoutgo = chkOutGo.Checked;
         }
 
         private void chkBag_CheckedChanged(object sender, EventArgs e)
         {
-
+            isbuyBag = chkBag.Checked;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            if (lboxDrink.SelectedIndex >= 0)
+            {
+                ArrayList OrderItemInfo = new ArrayList();
+                OrderItemInfo.Add(pdname);
+                OrderItemInfo.Add(price);
+                OrderItemInfo.Add(qty);
+                OrderItemInfo.Add(sumprice);
+                OrderItemInfo.Add(suger);
+                OrderItemInfo.Add(ice);
+                OrderItemInfo.Add(bonus);
 
+                DlobalBar.listOrderItemCollection.Add(OrderItemInfo);
+                MessageBox.Show("所選品項已加入購物車", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("請選擇飲料品項", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnPay_Click(object sender, EventArgs e)
         {
+            DlobalBar.Customer = txtBuyer.Text;
+            DlobalBar.isOutgo = isoutgo;
+            DlobalBar.isBag = isbuyBag;
+
+            FormOrderList myorderlist = new FormOrderList();
+            myorderlist.ShowDialog();//獨佔開啟
 
         }
     }

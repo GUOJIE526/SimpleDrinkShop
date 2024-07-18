@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnminor = new System.Windows.Forms.Button();
+            this.btnplus = new System.Windows.Forms.Button();
+            this.chkBag = new System.Windows.Forms.CheckBox();
+            this.chkOutGo = new System.Windows.Forms.CheckBox();
             this.btnPay = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.txtQty = new System.Windows.Forms.TextBox();
@@ -49,13 +53,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.chkOutGo = new System.Windows.Forms.CheckBox();
-            this.chkBag = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnminor);
+            this.panel1.Controls.Add(this.btnplus);
             this.panel1.Controls.Add(this.chkBag);
             this.panel1.Controls.Add(this.chkOutGo);
             this.panel1.Controls.Add(this.btnPay);
@@ -83,6 +87,56 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1136, 809);
             this.panel1.TabIndex = 0;
+            // 
+            // btnminor
+            // 
+            this.btnminor.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnminor.Location = new System.Drawing.Point(287, 673);
+            this.btnminor.Name = "btnminor";
+            this.btnminor.Size = new System.Drawing.Size(75, 44);
+            this.btnminor.TabIndex = 43;
+            this.btnminor.Text = "—";
+            this.btnminor.UseVisualStyleBackColor = true;
+            // 
+            // btnplus
+            // 
+            this.btnplus.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnplus.Location = new System.Drawing.Point(90, 674);
+            this.btnplus.Name = "btnplus";
+            this.btnplus.Size = new System.Drawing.Size(75, 43);
+            this.btnplus.TabIndex = 42;
+            this.btnplus.Text = "+";
+            this.btnplus.UseVisualStyleBackColor = true;
+            // 
+            // chkBag
+            // 
+            this.chkBag.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.chkBag.AutoSize = true;
+            this.chkBag.Font = new System.Drawing.Font("微軟正黑體", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.chkBag.Location = new System.Drawing.Point(911, 152);
+            this.chkBag.Name = "chkBag";
+            this.chkBag.Size = new System.Drawing.Size(104, 33);
+            this.chkBag.TabIndex = 41;
+            this.chkBag.Text = "購物袋";
+            this.chkBag.UseVisualStyleBackColor = true;
+            this.chkBag.CheckedChanged += new System.EventHandler(this.chkBag_CheckedChanged);
+            // 
+            // chkOutGo
+            // 
+            this.chkOutGo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.chkOutGo.AutoSize = true;
+            this.chkOutGo.Font = new System.Drawing.Font("微軟正黑體", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.chkOutGo.Location = new System.Drawing.Point(757, 152);
+            this.chkOutGo.Name = "chkOutGo";
+            this.chkOutGo.Size = new System.Drawing.Size(81, 33);
+            this.chkOutGo.TabIndex = 40;
+            this.chkOutGo.Text = "外帶";
+            this.chkOutGo.UseVisualStyleBackColor = true;
+            this.chkOutGo.CheckedChanged += new System.EventHandler(this.chkOutGo_CheckedChanged);
             // 
             // btnPay
             // 
@@ -121,7 +175,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtQty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.txtQty.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txtQty.Location = new System.Drawing.Point(213, 665);
+            this.txtQty.Location = new System.Drawing.Point(178, 666);
             this.txtQty.Name = "txtQty";
             this.txtQty.Size = new System.Drawing.Size(102, 34);
             this.txtQty.TabIndex = 37;
@@ -203,7 +257,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("微軟正黑體", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label12.Location = new System.Drawing.Point(333, 665);
+            this.label12.Location = new System.Drawing.Point(401, 666);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(43, 36);
             this.label12.TabIndex = 31;
@@ -309,7 +363,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("微軟正黑體", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label4.Location = new System.Drawing.Point(226, 612);
+            this.label4.Location = new System.Drawing.Point(196, 612);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(71, 36);
             this.label4.TabIndex = 23;
@@ -353,36 +407,6 @@
             this.label1.Text = "冷飲訂購單";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // chkOutGo
-            // 
-            this.chkOutGo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkOutGo.AutoSize = true;
-            this.chkOutGo.Font = new System.Drawing.Font("微軟正黑體", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.chkOutGo.Location = new System.Drawing.Point(757, 152);
-            this.chkOutGo.Name = "chkOutGo";
-            this.chkOutGo.Size = new System.Drawing.Size(81, 33);
-            this.chkOutGo.TabIndex = 40;
-            this.chkOutGo.Text = "外帶";
-            this.chkOutGo.UseVisualStyleBackColor = true;
-            this.chkOutGo.CheckedChanged += new System.EventHandler(this.chkOutGo_CheckedChanged);
-            // 
-            // chkBag
-            // 
-            this.chkBag.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkBag.AutoSize = true;
-            this.chkBag.Font = new System.Drawing.Font("微軟正黑體", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.chkBag.Location = new System.Drawing.Point(911, 152);
-            this.chkBag.Name = "chkBag";
-            this.chkBag.Size = new System.Drawing.Size(104, 33);
-            this.chkBag.TabIndex = 41;
-            this.chkBag.Text = "購物袋";
-            this.chkBag.UseVisualStyleBackColor = true;
-            this.chkBag.CheckedChanged += new System.EventHandler(this.chkBag_CheckedChanged);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -391,6 +415,7 @@
             this.ClientSize = new System.Drawing.Size(1136, 809);
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "冷飲";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
@@ -424,6 +449,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnminor;
+        private System.Windows.Forms.Button btnplus;
     }
 }
 
