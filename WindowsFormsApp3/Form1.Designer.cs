@@ -97,6 +97,7 @@
             this.btnminor.TabIndex = 43;
             this.btnminor.Text = "—";
             this.btnminor.UseVisualStyleBackColor = true;
+            this.btnminor.Click += new System.EventHandler(this.btnminor_Click);
             // 
             // btnplus
             // 
@@ -107,6 +108,7 @@
             this.btnplus.TabIndex = 42;
             this.btnplus.Text = "+";
             this.btnplus.UseVisualStyleBackColor = true;
+            this.btnplus.Click += new System.EventHandler(this.btnplus_Click);
             // 
             // chkBag
             // 

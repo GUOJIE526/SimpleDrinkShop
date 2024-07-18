@@ -221,5 +221,15 @@ namespace WindowsFormsApp3
             myorderlist.ShowDialog();//獨佔開啟
 
         }
+
+        private void btnplus_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnminor_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -38,6 +38,7 @@
             this.btnDeleteAll = new System.Windows.Forms.Button();
             this.btnRcipe = new System.Windows.Forms.Button();
             this.btnExitItem = new System.Windows.Forms.Button();
+            this.cboxOnSale = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -152,12 +153,22 @@
             this.btnExitItem.UseVisualStyleBackColor = true;
             this.btnExitItem.Click += new System.EventHandler(this.btnExitItem_Click);
             // 
+            // cboxOnSale
+            // 
+            this.cboxOnSale.Font = new System.Drawing.Font("微軟正黑體", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.cboxOnSale.FormattingEnabled = true;
+            this.cboxOnSale.Location = new System.Drawing.Point(56, 496);
+            this.cboxOnSale.Name = "cboxOnSale";
+            this.cboxOnSale.Size = new System.Drawing.Size(209, 42);
+            this.cboxOnSale.TabIndex = 10;
+            // 
             // FormOrderList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(990, 754);
+            this.Controls.Add(this.cboxOnSale);
             this.Controls.Add(this.btnExitItem);
             this.Controls.Add(this.btnRcipe);
             this.Controls.Add(this.btnDeleteAll);
@@ -189,5 +200,6 @@
         private System.Windows.Forms.Button btnDeleteAll;
         private System.Windows.Forms.Button btnRcipe;
         private System.Windows.Forms.Button btnExitItem;
+        private System.Windows.Forms.ComboBox cboxOnSale;
     }
 }
